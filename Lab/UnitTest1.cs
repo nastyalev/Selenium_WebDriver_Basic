@@ -25,7 +25,7 @@ namespace Lab
             driver.FindElement(By.XPath("//*[@id=\"Password\"]")).SendKeys("user");
             driver.FindElement(By.XPath("//*[@type=\"submit\"]")).Click();
 
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Home page\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[text()=\"Home page\"]")).Displayed);
         }
 
         [Test]
@@ -47,8 +47,8 @@ namespace Lab
 
             driver.FindElement(By.XPath("//*[@type=\"submit\"]")).Click();
 
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Create new\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Fortune cookie\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[text()=\"Create new\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[text()=\"Fortune cookie\"]")).Displayed);
         }
 
         [Test]
@@ -57,14 +57,14 @@ namespace Lab
             driver.FindElement(By.XPath("//*[@href=\"/Product\"]")).Click();
             driver.FindElement(By.XPath("//a[@href][text()=\"Fortune cookie\"]")).Click();
 
-            Assert.NotNull(driver.FindElement(By.XPath("//*[@value=\"Fortune cookie\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Confections\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Specialty Biscuits, Ltd.\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[@value=\"3,0000\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[@value=\"10 boxes x 15 pieces\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[@value=\"1\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[@value=\"3\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[@value=\"0\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//input[@id=\"ProductName\"][@value=\"Fortune cookie\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[@id=\"CategoryId\"]/*[@selected][text()=\"Confections\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[@id=\"SupplierId\"]/*[@selected][text()=\"Specialty Biscuits, Ltd.\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//input[@id=\"UnitPrice\"][@value=\"3,0000\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//input[@id=\"QuantityPerUnit\"][@value=\"10 boxes x 15 pieces\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//input[@id=\"UnitsInStock\"][@value=\"1\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//input[@id=\"UnitsOnOrder\"][@value=\"3\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//input[@id=\"ReorderLevel\"][@value=\"0\"]")).Displayed);
         }
 
         [Test]
@@ -79,10 +79,10 @@ namespace Lab
 
         [Test]
         public void Test5_Logout()
-        { 
+        {
             driver.FindElement(By.XPath("//*[text()=\"Logout\"]")).Click();
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Name\"]")).Displayed);
-            Assert.NotNull(driver.FindElement(By.XPath("//*[text()=\"Password\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[text()=\"Name\"]")).Displayed);
+            Assert.True(driver.FindElement(By.XPath("//*[text()=\"Password\"]")).Displayed);
         }
 
         public static Boolean isElementPresent(By locator)
